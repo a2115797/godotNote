@@ -431,4 +431,3 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="palyer" parent="." instance=ExtResource("2_j8d10")]
 position = Vector2(499, 232)
-speed_growth = 10

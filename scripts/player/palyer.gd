@@ -1,16 +1,13 @@
-extends "res://scripts/classes/BaseCreature.gd"
+extends BaseCreature
 
-var inputMove = load("res://scripts/extend/inputMove.gd")
-var input_move_instance = inputMove.new()
-
-var screen_size
+@onready var screen_size = get_viewport_rect().size
 
 func _ready():
-	speed = 300
-	screen_size = get_viewport_rect().size
+	super._ready()
+	#level += 40
 
 func _process(delta):
-	position = input_move_instance.catch_input_move(delta, speed, position, screen_size)
+	position = InputMove.catch_input_move(delta, speed, position, screen_size)
 	move_and_slide()
 	# move_and_collide()
 	
