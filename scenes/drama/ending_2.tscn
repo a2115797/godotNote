@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bskr7caqk2k8s"]
+
+[node name="ending_1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 241.0
+offset_right = 572.0
+offset_bottom = 264.0
+text = "结局2"

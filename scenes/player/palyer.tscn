@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df6a48b3wf34h"]
 
 [ext_resource type="Texture2D" uid="uid://dn2ilt7r125v6" path="res://assets/environment/tilemap_packed.png" id="1_ccms1"]
-[ext_resource type="Script" path="res://scripts/player/palyer.gd" id="1_eav2i"]
+[ext_resource type="Script" path="res://scenes/player/palyer.gd" id="1_eav2i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5ry"]
 radius = 7.0

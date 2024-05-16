@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1x00j6ot2xc2"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_icdup"]
+[ext_resource type="Texture2D" uid="uid://dn2ilt7r125v6" path="res://assets/environment/tilemap_packed.png" id="1_ra1j7"]
+[ext_resource type="Script" path="res://scripts/classes/StateMachice.gd" id="2_rf5y3"]
+[ext_resource type="Script" path="res://scenes/enemy/enemyIdle.gd" id="3_wthix"]
+[ext_resource type="Script" path="res://scenes/enemy/enemyFollow.gd" id="5_caujm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5didp"]
+radius = 6.08276
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_icdup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ra1j7")
+region_enabled = true
+region_rect = Rect2(16, 160, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5didp")
+
+[node name="StateMachice" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_rf5y3")
+initial_state = NodePath("EnemyFollow")
+
+[node name="EnemyIdle" type="Node" parent="StateMachice" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_wthix")
+enemy = NodePath("../..")
+
+[node name="EnemyFollow" type="Node" parent="StateMachice" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_caujm")
+enemy = NodePath("../..")
