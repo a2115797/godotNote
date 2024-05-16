@@ -10,6 +10,7 @@ func Enter():
 
 func PhysicsUpdate(delta: float):
 	if !player or !enemy:
+		enemy.velocity = Vector2.ZERO
 		return
 	
 	var direction = player.global_position - enemy.global_position

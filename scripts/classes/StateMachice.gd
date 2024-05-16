@@ -7,10 +7,10 @@
 # ======================================================================
 class_name StateMachice extends Node
 
-@export var initial_state : State
+@export var initial_state : State	#初始化状态
 
-var current_state : State
-var states : Dictionary = {}
+var current_state : State			# 当前状态
+var states : Dictionary = {}		# 状态字典
 
 func _ready():
 	for child in get_children():
@@ -36,10 +36,7 @@ func on_child_transition(state, new_state_name):
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
 		return
-	print('current_state: ',current_state)
-	print('state: ',state)
-	print('new_state_name: ',new_state_name)
-	print('states: ',states)
+	
 	if current_state:
 		current_state.Exit()
 	
