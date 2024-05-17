@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt745igt0xt4j"]
+
+[ext_resource type="Script" path="res://scenes/ui/dialog/dialog_box.gd" id="1_543s5"]
+[ext_resource type="Texture2D" uid="uid://c24nidm5deot7" path="res://assets/environment/sensei.png" id="2_2j7h4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axr2c"]
+content_margin_left = 110.0
+content_margin_top = 20.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_543s5")
+
+[node name="ContentBox" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -104.0
+offset_right = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Content" type="Label" parent="ContentBox"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_axr2c")
+text = "测试UI
+阿里巴巴嘛哩嘛哩哄"
+autowrap_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="ContentBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = -8.0
+texture = ExtResource("2_2j7h4")
+stretch_mode = 5

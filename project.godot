@@ -14,6 +14,10 @@ config/name="Godot Note"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="res://resources/theme/first_ui.tres"
+
 [input]
 
 move_up={
