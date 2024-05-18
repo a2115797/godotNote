@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0mvts0ayfwyk"]
+[gd_scene load_steps=7 format=3 uid="uid://b0mvts0ayfwyk"]
 
 [ext_resource type="Texture2D" uid="uid://dn2ilt7r125v6" path="res://assets/environment/tilemap_packed.png" id="1_5kcbv"]
 [ext_resource type="PackedScene" uid="uid://df6a48b3wf34h" path="res://scenes/player/palyer.tscn" id="2_j8d10"]
@@ -421,6 +421,12 @@ texture = ExtResource("1_5kcbv")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_plm2y")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8a4j1"]
+vertices = PackedVector2Array(945, 455, 965, 579, 529, 572, 882, 455, 789, 359, 748, 53, 1087, 52, 864, 359, 6, 42, 624, 42, 632, 386, 578, 386, 6, 383, 569, 386, 576, 453, 583, 453, 1088, 361, 873, 359, 874, 455, 540, 453)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 12, 11), PackedInt32Array(14, 13, 11, 15), PackedInt32Array(6, 16, 17), PackedInt32Array(7, 6, 17), PackedInt32Array(18, 7, 17, 3), PackedInt32Array(18, 3, 2), PackedInt32Array(15, 18, 2, 14), PackedInt32Array(14, 2, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, 32, 634, 33, 643, 397, -3, 393), PackedVector2Array(737, 44, 1097, 42, 1099, 372, 780, 369), PackedVector2Array(531, 443, 954, 446, 978, 590, 518, 582), PackedVector2Array(558, 367, 587, 361, 594, 476, 568, 470), PackedVector2Array(853, 341, 882, 340, 894, 468, 866, 467)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="TileMap" type="TileMap"]
 position = Vector2(4, 0)
 tile_set = SubResource("TileSet_wjh6v")
@@ -432,8 +438,17 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="player" parent="." groups=["Player"] instance=ExtResource("2_j8d10")]
 position = Vector2(499, 232)
+platform_floor_layers = 4294901761
 level = 5
 speed_growth = 10
 
 [node name="enemy" parent="." instance=ExtResource("3_o3epu")]
 position = Vector2(342, 257)
+platform_floor_layers = 4294901761
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_8a4j1")
+
+[node name="NavigationLink2D2" type="NavigationLink2D" parent="."]
+position = Vector2(592.205, 209.796)
+start_position = Vector2(200.795, -0.795654)

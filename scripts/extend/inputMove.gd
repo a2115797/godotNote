@@ -7,33 +7,11 @@
 # ======================================================================
 class_name InputMove extends Object
 
-# 捕获输入
-static func catch_input() -> Vector2:
-	var velocity = Vector2.ZERO # 移动向量.
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-		
-	return velocity
-
-# 获取输入返回坐标
-# @param _delta: 帧循环间隔
+# 获取输入返回移动速率向量
 # @param speed: 速度
-# @param position: 当前坐标
-# @param boundary: 移动边界
-# @return position: 目标坐标
-static func catch_input_move(_delta, speed: int, position: Vector2, boundary: Vector2) -> Vector2:
-	var velocity = catch_input()
-	if velocity.length() <= 0:
-		return position # 不改变位置
+static func catch_input_move(speed: int) -> Vector2:
+	var velocity = Vector2.ZERO # 移动向量
+	velocity.x = Input.get_axis("move_left","move_right")
+	velocity.y = Input.get_axis("move_up","move_down")
 	
-	velocity = velocity.normalized() * speed # 归一化向量
-	position += velocity * _delta
-	position.x = clamp(position.x, 0, boundary.x) # x轴边界检测
-	position.y = clamp(position.y, 0, boundary.y) # y轴边界检测
-	return position
+	return velocity.normalized() * speed  # 归一化向量后乘以速度获得移动的方向和距离

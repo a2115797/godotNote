@@ -9,6 +9,7 @@ var move_direction: Vector2
 var wander_timer: float
 var player: CharacterBody2D
 
+# 随机游荡
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 	wander_timer = randf_range(1, 3)

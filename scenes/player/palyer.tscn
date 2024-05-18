@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5ry"]
 radius = 7.0
 
-[node name="palyer" type="CharacterBody2D"]
+[node name="palyer" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent_2d")]
 script = ExtResource("1_eav2i")
+navigation_agent_2d = NodePath("NavigationAgent2D")
 level = 10
 speed_growth = 20
 
@@ -19,3 +20,5 @@ region_rect = Rect2(0, 112.79, 16, 15.2105)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_4j5ry")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
