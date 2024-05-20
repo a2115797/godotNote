@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://df6a48b3wf34h"]
+[gd_scene load_steps=5 format=3 uid="uid://df6a48b3wf34h"]
 
 [ext_resource type="Texture2D" uid="uid://dn2ilt7r125v6" path="res://assets/environment/tilemap_packed.png" id="1_ccms1"]
 [ext_resource type="Script" path="res://scenes/player/palyer.gd" id="1_eav2i"]
+[ext_resource type="PackedScene" uid="uid://derpgp6sc6r7f" path="res://scenes/ability/sword_ability/sword_ability_controller.tscn" id="2_e3yaw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5ry"]
 radius = 7.0
 
-[node name="palyer" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent_2d")]
+[node name="Palyer" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent_2d")]
 script = ExtResource("1_eav2i")
 navigation_agent_2d = NodePath("NavigationAgent2D")
 level = 10
 speed_growth = 20
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_e3yaw")]
 
 [node name="palyer" type="Sprite2D" parent="."]
 texture = ExtResource("1_ccms1")

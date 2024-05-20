@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bifs8ip6dmsuv" path="res://scenes/drama/ending_1.tscn" id="1_qjxqh"]
 [ext_resource type="PackedScene" uid="uid://bskr7caqk2k8s" path="res://scenes/drama/ending_2.tscn" id="2_sqfct"]
 
-[node name="drama" type="Node2D"]
+[node name="Drama" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 556.0
