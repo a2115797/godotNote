@@ -1,6 +1,13 @@
+# 能力控制
+生成 abiliy 节点并添加到对应位置，节点生成后可以在 AnimationPlayer 中添加 queue_free() 函数进行销毁，或是在 abiliy 节点中通过代码进行销毁
+
+```
 extends Node
 
+# 最大范围
 @export var max_range: int = 150
+
+# 导出能力场景，在控制器场景进行挂在需要管理的能力
 @export var sword_ability: PackedScene
 
 func _ready():
@@ -36,3 +43,4 @@ func on_timer_timeout():
 	# 计算攻击的 enemy 与 ability 位置矢量 
 	var enemy_direction = enemies[0].global_position - sword_instance.global_position
 	sword_instance.rotation = enemy_direction.angle()
+```

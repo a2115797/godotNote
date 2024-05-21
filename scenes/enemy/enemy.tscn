@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1x00j6ot2xc2"]
+[gd_scene load_steps=8 format=3 uid="uid://c1x00j6ot2xc2"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_icdup"]
 [ext_resource type="Texture2D" uid="uid://dn2ilt7r125v6" path="res://assets/environment/tilemap_packed.png" id="1_ra1j7"]
@@ -6,11 +6,24 @@
 [ext_resource type="Script" path="res://scenes/enemy/enemyIdle.gd" id="3_wthix"]
 [ext_resource type="Script" path="res://scenes/enemy/enemyFollow.gd" id="5_caujm"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu6x7"]
+radius = 11.0454
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5didp"]
 radius = 6.08276
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_icdup")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_nu6x7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ra1j7")
