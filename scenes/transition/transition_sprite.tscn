@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cf51v0gvhkp27"]
+
+[node name="TransitionSprite" type="Sprite2D"]
+position = Vector2(600, 350)

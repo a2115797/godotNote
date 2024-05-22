@@ -24,7 +24,7 @@ func Update(delta: float):
 	else:
 		randomize_wander()
 
-func PhysicsUpdate(delta: float):
+func PhysicsUpdate(_delta: float):
 	var direction = enemy.global_position - player.global_position
 	
 	if direction.length() < 80:

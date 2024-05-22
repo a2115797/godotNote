@@ -35,7 +35,7 @@ shape = SubResource("CircleShape2D_5didp")
 
 [node name="StateMachice" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_rf5y3")
-initial_state = NodePath("EnemyFollow")
+initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyIdle" type="Node" parent="StateMachice" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_wthix")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgvw6pqckixsf"]
+
+[ext_resource type="PackedScene" uid="uid://b0mvts0ayfwyk" path="res://scenes/map/tile_map.tscn" id="1_nuoc4"]
+[ext_resource type="PackedScene" uid="uid://df6a48b3wf34h" path="res://scenes/player/player.tscn" id="2_7rjnl"]
+[ext_resource type="PackedScene" uid="uid://c1x00j6ot2xc2" path="res://scenes/enemy/enemy.tscn" id="3_eqgid"]
+
+[node name="Battle" type="Node2D"]
+editor_description = "战斗场景"
+
+[node name="TileMap" parent="." instance=ExtResource("1_nuoc4")]
+position = Vector2(0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_eqgid")]
+position = Vector2(352, 280)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_eqgid")]
+position = Vector2(104, 256)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_eqgid")]
+position = Vector2(768, 512)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_eqgid")]
+position = Vector2(880, 144)
+
+[node name="Player" parent="." instance=ExtResource("2_7rjnl")]
+position = Vector2(304, 128)

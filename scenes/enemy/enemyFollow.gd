@@ -8,7 +8,7 @@ var player: CharacterBody2D
 func Enter():
 	player = get_tree().get_first_node_in_group('Player')
 
-func PhysicsUpdate(delta: float):
+func PhysicsUpdate(_delta: float):
 	if !player or !enemy:
 		enemy.velocity = Vector2.ZERO
 		return
