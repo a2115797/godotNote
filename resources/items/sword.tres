@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dsm6of2g87d38"]
+
+[ext_resource type="Script" path="res://scripts/classes/Item.gd" id="1_5nsog"]
+[ext_resource type="Texture2D" uid="uid://bes71fmc2xnpn" path="res://assets/ability/sword/sword.png" id="1_pi11y"]
+
+[resource]
+script = ExtResource("1_5nsog")
+name = "剑"
+icon = ExtResource("1_pi11y")

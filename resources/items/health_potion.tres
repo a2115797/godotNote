@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cxstv6w0hl60"]
+
+[ext_resource type="Script" path="res://scripts/classes/Item.gd" id="1_e25q1"]
+[ext_resource type="Texture2D" uid="uid://c24nidm5deot7" path="res://assets/environment/sensei.png" id="1_lc2pi"]
+
+[resource]
+script = ExtResource("1_e25q1")
+name = "生命药水"
+icon = ExtResource("1_lc2pi")

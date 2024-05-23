@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ye2ljvprlke"]
+
+[ext_resource type="Script" path="res://scripts/classes/BaseItem.gd" id="1_3vqga"]
+[ext_resource type="Resource" uid="uid://dsm6of2g87d38" path="res://resources/items/sword.tres" id="2_fuvwq"]
+[ext_resource type="Texture2D" uid="uid://bes71fmc2xnpn" path="res://assets/ability/sword/sword.png" id="3_va5ic"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mu0gt"]
+radius = 4.0
+height = 16.0
+
+[node name="SwordItem" type="Node2D" node_paths=PackedStringArray("area")]
+script = ExtResource("1_3vqga")
+item = ExtResource("2_fuvwq")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_va5ic")
+region_rect = Rect2(416, 128, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_mu0gt")

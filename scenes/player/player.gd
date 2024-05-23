@@ -2,6 +2,9 @@ extends BaseCreature
 
 @export var navigation_agent_2d: NavigationAgent2D
 
+# 创建背包
+var inventory: Inventory = Inventory.new()
+
 func _ready():
 	super._ready()
 	
@@ -28,3 +31,10 @@ func _unhandled_input(event :InputEvent) -> void:
 		return
 
 	navigation_agent_2d.target_position = get_global_mouse_position()
+	
+# 拾起物品，当角色触碰物品时由触碰的物品调用
+func on_item_picked_up(item: Item):
+	print("item:", item)
+	print("item_up: ", item.name)
+	inventory.add_item(item)
+	

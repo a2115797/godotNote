@@ -8,6 +8,8 @@
 radius = 7.0
 
 [node name="Palyer" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent_2d") groups=["Player"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_eav2i")
 navigation_agent_2d = NodePath("NavigationAgent2D")
 speed = 100

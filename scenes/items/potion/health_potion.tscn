@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp40sa3jj2q7d"]
+
+[ext_resource type="Script" path="res://scripts/classes/BaseItem.gd" id="1_htxri"]
+[ext_resource type="Resource" uid="uid://cxstv6w0hl60" path="res://resources/items/health_potion.tres" id="2_edx62"]
+[ext_resource type="Texture2D" uid="uid://c3b1eia6a75x2" path="res://assets/environment/atlas.png" id="2_sfxsa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rl7vf"]
+radius = 6.0
+
+[node name="BaseItem" type="Node2D" node_paths=PackedStringArray("area")]
+script = ExtResource("1_htxri")
+item = ExtResource("2_edx62")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sfxsa")
+region_enabled = true
+region_rect = Rect2(416, 128, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rl7vf")
