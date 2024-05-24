@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://da0bvltkji7eb"]
+
+[ext_resource type="Texture2D" uid="uid://dprpck3p3xuas" path="res://assets/props n decorations/generic-rpg-rock01.png" id="1_67j0u"]
+[ext_resource type="Script" path="res://scripts/classes/Item.gd" id="1_vwnjj"]
+
+[resource]
+script = ExtResource("1_vwnjj")
+name = "铁矿石"
+icon = ExtResource("1_67j0u")

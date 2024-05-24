@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://c0kl08grc1nuj"]
+
+[ext_resource type="Resource" uid="uid://dyge6xymqdbh" path="res://resources/items/iron_ingot.tres" id="1_6oiyl"]
+[ext_resource type="Script" path="res://scripts/classes/Recipe.gd" id="1_ad2wv"]
+[ext_resource type="Resource" uid="uid://dsm6of2g87d38" path="res://resources/items/sword.tres" id="2_sg0rh"]
+
+[resource]
+script = ExtResource("1_ad2wv")
+name = "剑配方"
+ingredients = Array[Resource("res://scripts/classes/Item.gd")]([ExtResource("1_6oiyl"), ExtResource("1_6oiyl")])
+results = Array[Resource("res://scripts/classes/Item.gd")]([ExtResource("2_sg0rh")])
