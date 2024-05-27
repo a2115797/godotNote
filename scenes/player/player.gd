@@ -34,7 +34,5 @@ func _unhandled_input(event :InputEvent) -> void:
 	
 # 拾起物品，当角色触碰物品时由触碰的物品调用
 func on_item_picked_up(item: Item):
-	print("item:", item)
-	print("item_up: ", item.name)
 	inventory.add_item(item)
 	

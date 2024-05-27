@@ -59,4 +59,8 @@ func _on_craft_button_pressed():
 	
 	# 取配方中的合成的物品，添加到库存
 	for item in _selected_recipe.results:
-		_inventory.add_item(item)
+			_inventory.add_item(item)
+	
+	# 合成配方后剩余的材料不足，则禁用合成按钮
+	craft_button.disabled = not _inventory.has_all(_selected_recipe.ingredients)
+	

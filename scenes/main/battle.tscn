@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgvw6pqckixsf"]
+[gd_scene load_steps=11 format=3 uid="uid://bgvw6pqckixsf"]
 
 [ext_resource type="PackedScene" uid="uid://b0mvts0ayfwyk" path="res://scenes/map/tile_map.tscn" id="1_nuoc4"]
 [ext_resource type="PackedScene" uid="uid://df6a48b3wf34h" path="res://scenes/player/player.tscn" id="2_7rjnl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2mdkym42nvj5" path="res://scenes/ui/inventory_dialog/inventory_dialog.tscn" id="6_5fwgy"]
 [ext_resource type="PackedScene" uid="uid://nqom8ew3rcc5" path="res://scenes/items/iron_ore/iron_ore.tscn" id="6_lgxsi"]
 [ext_resource type="PackedScene" uid="uid://b3ye2ljvprlke" path="res://scenes/items/weapon/sword_item.tscn" id="7_kw77q"]
+[ext_resource type="Resource" uid="uid://b6q4kijtn2evp" path="res://resources/all_recipes.tres" id="8_4lg0g"]
 [ext_resource type="PackedScene" uid="uid://d2ctjy5f51bgx" path="res://scenes/ui/crafting_dialog/crafting_dialog.tscn" id="8_t7nkf"]
 
 [node name="Battle" type="Node2D"]
@@ -46,6 +47,7 @@ position = Vector2(400, 128)
 
 [node name="UIRoot" type="CanvasLayer" parent="."]
 script = ExtResource("5_508ec")
+all_recipes = ExtResource("8_4lg0g")
 
 [node name="InventoryDialog" parent="UIRoot" instance=ExtResource("6_5fwgy")]
 unique_name_in_owner = true
