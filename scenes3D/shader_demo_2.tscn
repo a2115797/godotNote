@@ -4,16 +4,17 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_skf45"]
 size = Vector2(10, 10)
+subdivide_width = 64
+subdivide_depth = 64
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kdao0"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lt80q"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aj1ws"]
-noise = SubResource("FastNoiseLite_kdao0")
+noise = SubResource("FastNoiseLite_lt80q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s5k4o"]
 render_priority = 0
 shader = ExtResource("1_pu7sk")
-shader_parameter/height_scale = 0.2
 shader_parameter/noise = SubResource("NoiseTexture2D_aj1ws")
 
 [node name="Node3D" type="Node3D"]

@@ -3,18 +3,11 @@ shader_type spatial;
 render_mode specular_toon;
 
 uniform sampler2D noise; // 导出噪声图
-uniform sampler2D normalmap; // 导出法线贴图
-
-/*
-uniform 定义的变量可以在GDScript 中通过 MeshInstance3D 进行调用：
-mesh.material.set_shader_parameter("height_scale", 0.5)
-*/ 
-uniform float height_scale = 0.5;
 
 // 水波
 float wave(vec2 position) {
 	// 通过 noise 纹理来偏移位置. 这将会使波浪成为曲线, 所以它们将不会是与网格所对齐的直线.
-	position += texture(noise, position / 10.0).x * 2.0 - 1.0;
+	position += texture(noise, position / 10.0).x * 0.5 - 0.2;
 	/*
 		用 sin() 和 position 定义一个类似波浪的函数. 
 		通常 sin() 波是很圆的. 我们使用 abs() 去将其绝对化, 
@@ -34,13 +27,21 @@ float height(vec2 position, float time) {
 	//vec2 offset = 0.01 * cos(position + time);
 	//// 根据mesh size 来设置，[10,10]的网格就除以10，或者使用UV坐标系
 	//return texture(noise, position / 10.0 - offset).x;
-	float h = wave(position);
+	
+	/*
+		把时间加到两个上, 再从另外两个上减去. 这使得波在不同的方向上移动, 产生了复杂的效果.
+	 	还要注意, 振幅(结果乘以的数字)全部加起来是 1.0. 这使波浪保持在0-1的范围内.
+	*/ 
+	float h = wave((position + time) * 0.4) * 0.3;
+	h += wave((position - time) * 0.3) * 0.3;
+	h += wave((position + time) * 0.5) * 0.2;
+	h += wave((position - time) * 0.6) * 0.2;
 	return h;
 }
 
 // 顶点处理器
 void vertex() {
-	// 使用 TIME 制作画
+	// 使用 TIME 制作动画
 	vec2 pos = VERTEX.xz;
 	float k = height(pos, TIME);
 	VERTEX.y = k;
