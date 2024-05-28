@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0msrosidjdfh"]
+
+[ext_resource type="Shader" path="res://shader/使用TIME制作波浪动画.gdshader" id="1_pu7sk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_skf45"]
+size = Vector2(10, 10)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kdao0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aj1ws"]
+noise = SubResource("FastNoiseLite_kdao0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5k4o"]
+render_priority = 0
+shader = ExtResource("1_pu7sk")
+shader_parameter/height_scale = 0.2
+shader_parameter/noise = SubResource("NoiseTexture2D_aj1ws")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_skf45")
+surface_material_override/0 = SubResource("ShaderMaterial_s5k4o")

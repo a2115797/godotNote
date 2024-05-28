@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcse0y6wa7kpx"]
+
+[ext_resource type="Shader" path="res://shader/利用噪声图制作3D丘陵和水波.gdshader" id="1_33m5p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0idug"]
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j68xq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_owis8"]
+noise = SubResource("FastNoiseLite_j68xq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tivo7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_buojb"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_tivo7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qthg"]
+render_priority = 0
+shader = ExtResource("1_33m5p")
+shader_parameter/height_scale = 0.1
+shader_parameter/noise = SubResource("NoiseTexture2D_owis8")
+shader_parameter/normalmap = SubResource("NoiseTexture2D_buojb")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0idug")
+surface_material_override/0 = SubResource("ShaderMaterial_0qthg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.999781, -0.0209075, 0, 0.0209075, 0.999781, 0, 0, 0, 1, 0.164039, 0.747234, 0.016737)
+light_energy = 0.674
+light_indirect_energy = 0.673
+light_volumetric_fog_energy = 0.891
+omni_range = 6.042
+omni_attenuation = 1.46408
