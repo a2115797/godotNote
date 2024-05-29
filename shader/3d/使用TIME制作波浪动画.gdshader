@@ -7,7 +7,7 @@ uniform sampler2D noise; // 导出噪声图
 // 水波
 float wave(vec2 position) {
 	// 通过 noise 纹理来偏移位置. 这将会使波浪成为曲线, 所以它们将不会是与网格所对齐的直线.
-	position += texture(noise, position / 10.0).x * 0.5 - 0.2;
+	position += texture(noise, position / 10.0).x * 0.6 - 0.2;
 	/*
 		用 sin() 和 position 定义一个类似波浪的函数. 
 		通常 sin() 波是很圆的. 我们使用 abs() 去将其绝对化, 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0msrosidjdfh"]
 
-[ext_resource type="Shader" path="res://shader/使用TIME制作波浪动画.gdshader" id="1_pu7sk"]
+[ext_resource type="Shader" path="res://shader/3d/使用TIME制作波浪动画.gdshader" id="1_pu7sk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_skf45"]
 size = Vector2(10, 10)
-subdivide_width = 64
-subdivide_depth = 64
+subdivide_width = 256
+subdivide_depth = 256
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lt80q"]
 

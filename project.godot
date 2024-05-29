@@ -91,4 +91,5 @@ crafting={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 2d/snap/snap_2d_vertices_to_pixel=true

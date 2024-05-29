@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcse0y6wa7kpx"]
 
-[ext_resource type="Shader" path="res://shader/利用噪声图制作3D丘陵和水波.gdshader" id="1_33m5p"]
+[ext_resource type="Shader" path="res://shader/3d/利用噪声图制作3D丘陵和水波.gdshader" id="1_33m5p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0idug"]
 subdivide_width = 32
