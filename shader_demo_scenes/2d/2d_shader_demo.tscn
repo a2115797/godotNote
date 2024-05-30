@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgjdmjk3vu8h6"]
 
-[ext_resource type="Shader" path="res://shader/2d/UV复制.gdshader" id="1_xao7h"]
+[ext_resource type="Shader" path="res://shader/2d/棋盘.gdshader" id="1_n0oip"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ocdhg"]
-shader = ExtResource("1_xao7h")
+shader = ExtResource("1_n0oip")
 
 [node name="ShaderDemo" type="Control"]
 layout_mode = 3
