@@ -1,24 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D tex;
-uniform vec2 center = vec2(0.0, 0.0);
-uniform float angle = 0.0;
-
-/*
-	自定义旋转 
-	UVs UV坐标或世界坐标等映射矩阵
-	RotationCenter 旋转中心坐标， 若使用UV坐标系，UV是[0,1]范围，因此[0.5,0.5]是UV映射的中心点
-	RotationAngle 旋转角度， 接收 0-1 的值，值为1等于旋转360度
-*/
-vec2 customRotator(vec2 UVs, vec2 RotationCenter, float RotationAngle) {
-	vec2 _uv = UVs + RotationCenter * -1.0; // 偏移
-	float angle_cos = cos(RotationAngle);
-	float angle_sin = sin(RotationAngle);
-	vec2 _a = vec2(angle_cos, angle_sin * -1.0);
-	vec2 _b = vec2(angle_sin,  angle_cos);
-	
-	return vec2(dot(_uv, _a), dot(_uv, _b)) + RotationCenter;
-}
+uniform sampler2D img;
 
 /*
 	position：圆心位置
@@ -66,18 +48,27 @@ vec4 square_rounded(vec2 uv, float width, float radius) {
 	return vec4(vec3(square), 1.0);
 }
 
-
 void fragment() {
-	vec2 _uv = UV;
-	//COLOR = vec4(_uv, 0.0, 1);
+	//vec2 uv = UV;
+	//// 偏移坐标定义圆中心位置，使坐标系从[0,1]变为[-0.5,0.5] 
+	//uv = uv - 0.5;
+	//// length 获取向量的长度，计算当前坐标距离圆心多远
+	//float len = length(uv) * 2.0;
+	//
+	//vec4 tex = texture(img, UV);
+	//COLOR = vec4(tex.r, tex.g, tex.b, 1.0 - len);
 	
-	// 旋转CALOR
-	COLOR = vec4(customRotator(_uv, center, angle), 0.0, 1);
+	//COLOR.rgb = vec3(circle(UV, 0.2, 0.005));
 	
+	// 制圆形遮罩
+	//vec4 tex = texture(img, UV);
+	//COLOR = vec4(tex.r, tex.g, tex.b, 1.0 - circle(UV, 0.4, 0.04));
+	
+	// 绘制圆角矩形遮罩
+	vec4 tex = texture(img, UV);
+	//COLOR = vec4(tex.r, tex.g, tex.b, 1.0 - square(UV, 0.4));
+	//COLOR = square(UV, 0.8);
+	//COLOR = square_stroke(UV, 0.9, 0.1);
+	//COLOR = square_rounded(UV, 0.9, 0.9);
 	
 }
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
